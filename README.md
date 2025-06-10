@@ -165,57 +165,7 @@ h.Title = 'Combined Correlation Matrix (Columns 1 to 9)';
 h.XLabel = 'Variables';
 h.YLabel = 'Variables';
 
-Pareto
-% % varNames = {'Alpha', 'Cl', 'Cd', 'CDp', 'Cm', 'Top Xtr', 'Bot Xtr', 'Cpmin', 'ClCd'};
-% % 
-% % for idx = 1:length(dataStruct)
-% %     if ~isempty(dataStruct(idx).Main_Dataset.data)
-% %         T = dataStruct(idx).Main_Dataset.data;
-% %         T = T(:,1:9);  % Use columns 1 to 9
-% % 
-% %         figure;
-% %         % Create Pareto chart for Cl (2nd column) as example
-% %         [bars, line] = pareto(T.Cl);
-% % 
-% %         % Customize X-axis tick labels
-% %         ax = gca;
-% %         ax.XTick = 1:length(T.Cl);  % Set tick locations
-% %         % For large datasets, you may want to limit tick labels or rotate them
-% %         % Here, we label bars with variable name 'Cl' repeated (or customize as needed)
-% %         % Since Pareto bars correspond to data points, not variables, 
-% %         % we can label bars with row indices or skip labels for clarity.
-% % 
-% %         % Add title and axis labels
-% %         title(['Pareto Chart of Cl - Dataset ' num2str(idx)]);
-% %         xlabel('Data Point Index');
-% %         ylabel('Cl Value');
-% % 
-% %         % Optional: rotate x-axis labels if you add custom labels
-% %         % ax.XTickLabelRotation = 45;
-% %     end
-% % end
 
-3D scatter
-varNames = {'Alpha', 'Cl', 'Cd', 'CDp', 'Cm', 'Top Xtr', 'Bot Xtr', 'Cpmin', 'ClCd'};
-
-figure(1);
-hold on;
-for idx = 1:length(dataStruct)
-    if ~isempty(dataStruct(idx).Main_Dataset.data)
-        T = dataStruct(idx).Main_Dataset.data;
-        T = T(:,1:9);  % Use columns 1 to 9
-        
-        scatter3(T.Alpha, T.Cl, T.Cd, 36, T.ClCd, 'filled', ...
-            'DisplayName', ['Dataset ' num2str(idx)]);
-    end
-end
-xlabel('Alpha');
-ylabel('Cl');
-zlabel('Cd');
-title('3D Scatter Plot: Alpha vs Cl vs Cd (Columns 1 to 9)');
-colorbar;
-% legend show;
-grid on;
 
 Plots 
 Cl vs Cd, 
